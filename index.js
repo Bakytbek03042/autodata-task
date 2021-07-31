@@ -10,17 +10,14 @@ MongoClient.connect(url, (err, client) => {
         throw err
     }
 
-    app.get("/", (req, res) => {
-        let db = client.db("announcementDB")
-        db.collection("announcement").deleteMany( {name : "dddddddddddddddddd"} )
-
-        res.send("OK")
-    })
-
     app.get("/getAnnouncementsList", (req, res) => {
         let limit = req.query.limit
         let sortBy = req.query.sortBy
         let page = req.query.page
+
+        if (!limit) {
+            limit = 10
+        }
 
         let sortingRequirements;
 
