@@ -49,7 +49,7 @@ MongoClient.connect(url, (err, client) => {
                 listOfAnnouncements[i] = announcement
             }
 
-            res.send(result)
+            res.send(listOfAnnouncements)
         })
     })
 
