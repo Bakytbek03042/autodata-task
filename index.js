@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
-const MongoClient    = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId; 
 
 const url = "mongodb://localhost:27017/mydb"
 
@@ -49,11 +50,11 @@ MongoClient.connect(url, (err, client) => {
     })
 
     app.get("/getAnnouncement", (req, res) => {
-        let name = req.query.name
+        let id = req.query.id
         let fields = req.query.fields
 
         let db = client.db("announcementDB")
-        db.collection("announcement").findOne( { name }, (err, result) =>{
+        db.collection("announcement").findOne( {_id : new ObjectId(id)} , (err, result) =>{
             if (err) {
                 res.send({status: err.code, message: err.message})
                 throw err
@@ -61,7 +62,6 @@ MongoClient.connect(url, (err, client) => {
                 res.send({status: 400, message: "Bad request"})
             }
 
-            console.log(result.name)
             let announcement = {}
             announcement.name = result.name
             announcement.price = result.price
