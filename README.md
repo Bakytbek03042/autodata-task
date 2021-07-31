@@ -19,6 +19,8 @@
 | limit  |  | 10 | Максимальное количество объектов в странице |
 | sortBy  | date-asc, date-desc, price-asc, price-desc | date-asc | **date-asc** - дата по возрастанию<br> **date-desc** - дата по убыванию<br> **price-asc** - цена по возрастанию<br> **price-desc** - цена по убыванию |
 
+[http://localhost:3000/getAnnouncementsList?limit=10&page=0&sortBy=price-desc](http://localhost:3000/getAnnouncementsList?limit=10&page=0&sortBy=price-desc)<br>
+
 ## Получение одного объявления
 
 - [x] Обязательные поля в ответе: название объявления, цена, ссылка на главное фото;
@@ -29,6 +31,7 @@
 | ------------ | :------------: | :------------: | ------------ |
 | id  |  | | **id** объявлений для поиска. |
 | fileds  | 0, 1 | 0 | Опциональные поля: описание, ссылки на все фото.<br>**0** - Убрать<br>**1** - Показать |
+[http://localhost:3000/getAnnouncement?id=6104060095de8ee0c1a843b6&fields=1](http://localhost:3000/getAnnouncement?id=6104060095de8ee0c1a843b6&fields=1)
 
 ## Метод создания объявления:
 - [x] Принимает все вышеперечисленные поля: название, описание, несколько ссылок на фотографии (сами фото загружать никуда не требуется), цена;
@@ -40,3 +43,4 @@
 | description  | 1000 символов | Описания |
 | date  | не больше 3 ссылок | Дата |
 | price  |  | Цена |
+[http://localhost:3000/create?name=1&description=asdf+asdf&image1=link+1&image2=link+2&image3=link+3&price=450000](http://localhost:3000/create?name=1&description=asdf+asdf&image1=link+1&image2=link+2&image3=link+3&price=450000)
