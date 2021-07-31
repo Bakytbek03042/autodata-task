@@ -43,4 +43,5 @@
 | description  | 1000 символов | Описания |
 | date  | не больше 3 ссылок | Дата |
 | price  |  | Цена |
+
 [http://localhost:3000/create?name=1&description=asdf+asdf&image1=link+1&image2=link+2&image3=link+3&price=450000](http://localhost:3000/create?name=1&description=asdf+asdf&image1=link+1&image2=link+2&image3=link+3&price=450000)
